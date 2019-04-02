@@ -1,6 +1,11 @@
 <div [ngClass]="setClasses()">
   <p>
-    <input (change)="onChange(item)" type="checkbox" name="" id="" />
+    <input
+      (change)="onChange(item)"
+      type="checkbox"
+      [(ngModel)]="item.completed"
+      name="item"
+    />
     {{ item.title }}
     <Button (click)="onDelete(item)" class="del">x</Button>
   </p>

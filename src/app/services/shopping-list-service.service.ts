@@ -32,4 +32,12 @@ export class ShoppingListService {
       httpOptions
     );
   }
+  addShoppingListItem(item: ShoppingItem): Observable<any> {
+    this;
+    return this.http.put<ShoppingItem>(
+      `${this.url}/${item.id}`,
+      item,
+      httpOptions
+    );
+  }
 }

@@ -25,4 +25,10 @@ export class ShoppingListComponent implements OnInit {
         );
       });
   }
+
+  onAddItem(itemToAdd: ShoppingItem) {
+    this.shoppingListService.addShoppingListItem(itemToAdd).subscribe(items => {
+      this.shoppingItems.push(itemToAdd);
+    });
+  }
 }
