@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { ShoppingItem } from "src/app/models/shoppingItem";
+import { ShoppingListService } from "src/app/services/shopping-list-service.service";
 
 @Component({
   selector: "app-shopping-list-item",
@@ -8,7 +9,8 @@ import { ShoppingItem } from "src/app/models/shoppingItem";
 })
 export class ShoppingListItemComponent implements OnInit {
   @Input() item: ShoppingItem;
-  constructor() {}
+  @Output() deleteItem: EventEmitter<ShoppingItem> = new EventEmitter();
+  constructor(private shoppingListService: ShoppingListService) {}
 
   ngOnInit() {}
 
@@ -20,9 +22,14 @@ export class ShoppingListItemComponent implements OnInit {
     return classes;
   }
 
-  onDelete(item: ShoppingItem) {}
+  onDelete(item: ShoppingItem) {
+    console.log("Ettempting to delete item");
+    this.deleteItem.emit(item);
+  }
 
   onChange(item: ShoppingItem) {
     item.completed = !item.completed;
+
+    this.shoppingListService.updateShoppingListItem(item);
   }
 }

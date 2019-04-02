@@ -1,2 +1,6 @@
-<app-shopping-list-item *ngFor="let item of shoppingItems" [item]="item">
+<app-shopping-list-item
+  *ngFor="let item of shoppingItems"
+  [item]="item"
+  (deleteItem)="onDeleteItem($event)"
+>
 </app-shopping-list-item>

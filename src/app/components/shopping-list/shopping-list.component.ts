@@ -15,4 +15,14 @@ export class ShoppingListComponent implements OnInit {
       this.shoppingItems = items;
     });
   }
+
+  onDeleteItem(itemToDelete: ShoppingItem) {
+    this.shoppingListService
+      .deleteShoppingListItem(itemToDelete)
+      .subscribe(items => {
+        this.shoppingItems = this.shoppingItems.filter(
+          item => item.id !== itemToDelete.id
+        );
+      });
+  }
 }
