@@ -9,6 +9,7 @@ import { ShoppingListComponent } from "./components/shopping-list/shopping-list.
 import { ShoppingListItemComponent } from "./components/shopping-list-item/shopping-list-item.component";
 import { HeaderComponent } from "./components/layout/header/header.component";
 import { AddShoppingListItemComponent } from "./components/add-shopping-list-item/add-shopping-list-item.component";
+import { AboutComponent } from './components/pages/about/about.component';
 
 // Root app module.
 @NgModule({
@@ -19,7 +20,8 @@ import { AddShoppingListItemComponent } from "./components/add-shopping-list-ite
     ShoppingListComponent,
     ShoppingListItemComponent,
     HeaderComponent,
-    AddShoppingListItemComponent
+    AddShoppingListItemComponent,
+    AboutComponent
   ],
   // Modules will get here, Browser, Routing, Http client.
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],

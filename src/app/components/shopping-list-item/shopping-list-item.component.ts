@@ -23,13 +23,11 @@ export class ShoppingListItemComponent implements OnInit {
   }
 
   onDelete(item: ShoppingItem) {
-    console.log("Ettempting to delete item");
     this.deleteItem.emit(item);
   }
 
   onChange(item: ShoppingItem) {
     item.completed = !item.completed;
-
     this.shoppingListService.updateShoppingListItem(item);
   }
 }
