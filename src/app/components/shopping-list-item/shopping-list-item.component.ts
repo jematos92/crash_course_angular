@@ -28,6 +28,8 @@ export class ShoppingListItemComponent implements OnInit {
 
   onChange(item: ShoppingItem) {
     item.completed = !item.completed;
-    this.shoppingListService.updateShoppingListItem(item);
+    this.shoppingListService.updateShoppingListItem(item).subscribe(x => {
+      console.log("item updated");
+    });
   }
 }
